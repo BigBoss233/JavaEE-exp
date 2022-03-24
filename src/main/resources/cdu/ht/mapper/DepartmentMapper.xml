@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cdu.ht.mapper.DepartmentMapper">
+    <select id="findAll" resultType="department">
+        select *
+        from table_department
+    </select>
+    <select id="findByName" resultType="department">
+        <bind name="_name" value="'%' + name + '%'"/>
+        select * from table_department
+        <where>
+            <if test="name!=null">
+                and name like #{_name}
+            </if>
+        </where>
+    </select>
+    <insert id="insert" parameterType="department">
+        insert into table_department
+        values (null, #{number}, #{name})
+    </insert>
+    <delete id="delById" parameterType="java.lang.Integer">
+        delete
+        from table_department
+        where id = #{id}
+    </delete>
+    <update id="update" parameterType="department">
+        update table_department
+        set name=#{name},
+            number=#{number}
+        where id = #{id}
+    </update>
+    <select id="findById" resultType="department">
+        select *
+        from table_department
+        where id = #{id}
+    </select>
+</mapper>

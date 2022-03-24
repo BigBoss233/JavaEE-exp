@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cdu.ht.mapper.EmployeeMapper">
+    <select id="findAll" resultType="employee">
+        select *
+        from table_employee
+    </select>
+    <select id="findByDepId" resultType="employee">
+        select *
+        from table_employee
+        where dep_id = #{dep_id}
+    </select>
+    <insert id="insert" parameterType="employee">
+        insert into table_employee
+        values (null, #{number}, #{name}, #{gender}, #{age}, #{dep_id})
+    </insert>
+    <delete id="delById" parameterType="java.lang.Integer">
+        delete
+        from table_employee
+        where id = #{id}
+    </delete>
+    <delete id="delByDepId" parameterType="java.lang.Integer">
+        delete
+        from table_employee
+        where dep_id = ${dep_id}
+    </delete>
+    <update id="update" parameterType="employee">
+        update table_employee
+        set name=#{name},
+            number=#{number},
+            gender=#{gender},
+            age=#{age},
+            dep_id=#{dep_id}
+        where id = #{id}
+    </update>
+
+    <select id="fuzzyFind" parameterType="employee" resultType="employee">
+        select * from table_employee where 1=1
+        <if test="name!=null and name!= ''">
+            and name like concat('%',#{name},'%')
+        </if>
+        <if test="number!=null and number!= ''">
+            and number = #{number}
+        </if>
+        <if test="gender!=null and gender!= ''">
+            and gender = #{gender}
+        </if>
+    </select>
+</mapper>
