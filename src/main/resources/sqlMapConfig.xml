@@ -7,6 +7,7 @@
     <typeAliases>
         <typeAlias type="cdu.ht.entity.Department" alias="department"/>
         <typeAlias type="cdu.ht.entity.Employee" alias="employee"/>
+        <typeAlias type="cdu.ht.entity.Admin" alias="admin"/>
         <!--        <package name="cdu.ht.domain"/>-->
     </typeAliases>
     <plugins>
