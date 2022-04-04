@@ -1,12 +1,10 @@
 package cdu.ht.service.impl;
 
+import cdu.ht.entity.Employee;
 import cdu.ht.mapper.DepartmentMapper;
 import cdu.ht.mapper.EmployeeMapper;
-import cdu.ht.entity.Employee;
 import cdu.ht.service.EmployeeService;
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

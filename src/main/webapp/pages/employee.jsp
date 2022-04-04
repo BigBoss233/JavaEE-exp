@@ -22,7 +22,7 @@
         }
     </script>
 </head>
-<body>
+<body class="container">
 <h1>员工列表</h1>
 <form action="${pageContext.request.contextPath}/employee/fuzzyFind" method="post">
     姓名:<input type="text" name="name">
@@ -79,6 +79,6 @@
 </c:choose>
 <a href="?dep_id=${employeeParam.dep_id}&&name=${employeeParam.name}&&gender=${employeeParam.gender}&&number=${employeeParam.number}&&page=${pageInfo.lastPage}"
    class="btn btn-default" role="button">尾页</a>
-<a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-default">返回</a>
+<a href="${pageContext.request.contextPath}/pages/index.jsp" class="btn btn-default">返回</a>
 </body>
 </html>
