@@ -1,7 +1,9 @@
 package cdu.ht.entity;
 
-import java.util.List;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+@Component
 public class Employee {
     private Integer id;
     private Integer number;
@@ -10,6 +12,8 @@ public class Employee {
     private Integer age;
     private Integer dep_id;
     private String dep_name;
+
+
 
     public Employee(Integer id, Integer number, String name, String gender, Integer age, Integer dep_id, String dep_name) {
         this.id = id;

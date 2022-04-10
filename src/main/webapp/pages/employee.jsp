@@ -11,7 +11,7 @@
 <head>
     <title>Title</title>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-    <script rel="stylesheet" type="text/css" src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/jquery-3.6.0.min.js"></script>
     <script>
         function delUser(userId) {
             if (confirm("确认要删除吗？")) {

@@ -1,5 +1,6 @@
 package cdu.ht.controller;
 
+import cdu.ht.annotation.LogAnno;
 import cdu.ht.entity.Admin;
 import cdu.ht.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,10 @@ public class AdminController {
     private AdminService adminService;
 
     @RequestMapping("/login")
+    @LogAnno
     public ModelAndView login(HttpSession httpSession, Admin admin) {
         Admin admin1 = adminService.login(admin);
-        httpSession.setAttribute("admin",admin1);
+        httpSession.setAttribute("admin", admin1);
         ModelAndView modelAndView = new ModelAndView();
         if (admin1 != null) {
             modelAndView.addObject("admin", admin1);
@@ -32,9 +34,10 @@ public class AdminController {
         return modelAndView;
     }
 
+    @LogAnno
     @RequestMapping("/logout")
     public String logout(HttpSession httpSession) {
-        if(httpSession.getAttribute("admin")!=null){
+        if (httpSession.getAttribute("admin") != null) {
             httpSession.removeAttribute("admin");
         }
         System.out.println("注销成功");

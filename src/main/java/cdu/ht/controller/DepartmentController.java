@@ -1,5 +1,6 @@
 package cdu.ht.controller;
 
+import cdu.ht.annotation.LogAnno;
 import cdu.ht.entity.Department;
 import cdu.ht.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -24,8 +26,10 @@ public class DepartmentController {
         modelAndView.setViewName("department");
         return modelAndView;
     }
+
+    @LogAnno
     @RequestMapping("/update")
-    public String update(Department department){
+    public String update(HttpSession httpSession,Department department){
         departmentService.update(department);
         return "redirect:findAll";
     }
@@ -36,13 +40,16 @@ public class DepartmentController {
         modelAndView.setViewName("department-update");
         return modelAndView;
     }
+    @LogAnno
     @RequestMapping("/insert")
-    public String insert(Department departemnt){
-        departmentService.insert(departemnt);
+    public String insert(HttpSession httpSession,Department department){
+        departmentService.insert(department);
         return "redirect:findAll";
     }
+
+    @LogAnno
     @RequestMapping("/del")
-    public String del(Integer id){
+    public String del(HttpSession httpSession,Integer id){
         departmentService.delById(id);
         return "redirect:findAll";
     }

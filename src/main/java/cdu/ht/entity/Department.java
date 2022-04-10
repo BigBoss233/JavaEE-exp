@@ -1,5 +1,9 @@
 package cdu.ht.entity;
 
+
+import org.springframework.stereotype.Component;
+
+@Component
 public class Department {
     private Integer id;
     private Integer number;

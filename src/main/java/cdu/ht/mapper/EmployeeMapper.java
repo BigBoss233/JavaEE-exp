@@ -1,8 +1,10 @@
 package cdu.ht.mapper;
 
 import cdu.ht.entity.Employee;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+
 
 public interface EmployeeMapper {
     List<Employee> findAll();
